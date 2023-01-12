@@ -89,6 +89,7 @@ export default {
 
 <template>
     <main>
+        <div class="jumbo"></div>
         <div class="container-lg">
             <div class="row">
                 <MainCards v-for="card in cardsList" :url_image="card.thumb" :series_title="card.series" />
@@ -100,5 +101,11 @@ export default {
 <style lang="scss">
 main {
     background-color: #1C1C1C;
+
+    div.jumbo {
+        height: 25rem;
+        background-image: url(../assets/img/jumbotron.jpg);
+        margin-bottom: 4rem;
+    }
 }
 </style>
