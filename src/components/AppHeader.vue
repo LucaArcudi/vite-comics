@@ -1,25 +1,3 @@
-<template>
-    <header>
-        <div class="container-lg">
-            <div class="row">
-                <div class="col-4">
-                    <a href="#">
-                        <img class="p-3" src="../assets/img/dc-logo.png" alt="DC main logo">
-                    </a>
-                </div>
-                <div class="col-8 d-flex align-items-center justify-content-center">
-                    <ul class="d-flex">
-                        <li v-for="navItem in navItems" :class="(navItem.active) ? 'active' : ''">
-                            {{ navItem.text.toUpperCase() }}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </header>
-</template>
-
 <script>
 export default {
     data() {
@@ -71,33 +49,57 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<template>
+    <header>
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-4">
+                    <a href="#">
+                        <img class="p-3" src="../assets/img/dc-logo.png" alt="DC main logo">
+                    </a>
+                </div>
+                <div class="col-8">
+                    <ul>
+                        <li v-for="navItem in navItems" :class="(navItem.active) ? 'active' : ''">
+                            {{ navItem.text }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </header>
+</template>
+
+<style lang="scss" scoped>
+@use "../styles/partials/variables" as *;
+
 header {
     background-color: white;
-    margin-top: 2vh;
 
     img {
         width: 115px;
     }
 
     ul {
-        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: end;
         margin-bottom: 0;
 
         li {
             font-size: 12px;
             font-weight: 700;
-            padding: 0 1rem;
+            margin: 0 1rem;
+            padding: calc((115px/2) - 10.5px) 0;
+            border-bottom: 3px solid transparent;
+            text-transform: uppercase;
 
-            &:hover {
-                color: #0282F9;
+            &.active {
+                color: $main-color;
+                border-bottom: 3px solid $main-color;
             }
         }
     }
-}
-
-
-.active {
-    color: #0282F9;
 }
 </style>

@@ -1,3 +1,7 @@
+<script>
+
+</script>
+
 <template>
     <main>
         <div class="container-lg">
@@ -9,12 +13,6 @@
         </div>
     </main>
 </template>
-
-<script>
-export default {
-
-}
-</script>
 
 <style lang="scss">
 main {
